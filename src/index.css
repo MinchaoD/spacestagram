@@ -38,7 +38,7 @@ code {
 .section-center {
   width: 90vw;
   margin: 0 auto;
-  padding-top: 5rem;
+  padding-top: 4rem;
   max-width: 1170px;
   display: grid;
   gap: 3rem 2rem;
@@ -74,7 +74,7 @@ code {
 }
 
 .searchbutton:hover{
-  background-color: rgb(24, 99, 28) !important
+  background-color: rgb(24, 99, 28)
 }
 
 .paginationBttns {

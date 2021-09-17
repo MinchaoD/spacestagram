@@ -11,9 +11,10 @@ function Main() {
     const [endDate, setEnddate] = useState('');
     const [pageNumber, setPageNumber] = useState(0)
   
-    const url = 'https://api.nasa.gov/planetary/apod?start_date=2015-08-21&end_date=2015-09-15&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN'
+    const url = 'https://api.nasa.gov/planetary/apod?start_date=2021-09-06&end_date=2021-09-16&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN'
     const searchUrl = `https://api.nasa.gov/planetary/apod?start_date=${startDate}&end_date=${endDate}&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN`
 
+    // this fetchSpace will run when the website is refreshed everytime
     const fetchSpace = async() => {
         setLoading(true)
         try {
@@ -28,6 +29,7 @@ function Main() {
         }
     }
 
+    // this SearchSpace will run when the user search for the specific dates
     const SearchSpace = async() => {
         setLoading(true)
         try {
@@ -47,7 +49,7 @@ function Main() {
         fetchSpace();
     },[])
 
-    
+    // this is to add a loading spin log and text
     if(loading) {
         return (
             <div>
@@ -61,6 +63,8 @@ function Main() {
         )
     }
 
+    // this is to add pagination at the bottom so the user can navigate to different pages
+    // each page will show 6 images
     const itemPerpage = 6;
     const pagesVisited = pageNumber * itemPerpage;
     const pageCount = Math.ceil(data.length / itemPerpage)
@@ -78,7 +82,7 @@ function Main() {
                         <input type='date' 
                                 name='startdate'
                                 onChange = {e => setStartdate(e.target.value)}
-                                style={{margin:'1rem', fontSize:'1.5rem'}}/>
+                                style={{margin:'1rem', fontSize:'1.5rem', backgroundColor:'#DCDCDC'}}/>
                     </label>
                 </div>
                 <div className = 'col-md-6'>
@@ -87,7 +91,7 @@ function Main() {
                         <input type='date' 
                                 name='enddate'
                                 onChange = {e => setEnddate(e.target.value)}
-                                style={{margin:'1.7rem', fontSize:'1.5rem'}} />
+                                style={{margin:'1.7rem', fontSize:'1.5rem', backgroundColor:'#D3D3D3'}} />
                     </label>
                 </div>
             </div>
