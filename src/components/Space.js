@@ -1,30 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import ClipLoader from "react-spinners/ClipLoader";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart} from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
+import Display from './Display'
 
 function Space() {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     const [startDate, setStartdate] = useState('');
     const [endDate, setEnddate] = useState('');
-    const [like, setLike] = useState('false')
+  
 
     const url = 'https://api.nasa.gov/planetary/apod?start_date=2015-09-07&end_date=2015-09-15&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN'
 
     const searchUrl = `https://api.nasa.gov/planetary/apod?start_date=${startDate}&end_date=${endDate}&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN`
 
-    const markLike = () => {
-        setLike(like => !like)
-    }
 
     const fetchSpace = async() => {
         setLoading(true)
         try {
             const response = await fetch(url);
             const space = await response.json();
-            setLoading(false);
+          
             setData(space);
             setLoading(false)
 
@@ -56,6 +51,8 @@ function Space() {
         fetchSpace();
     },[])
 
+
+    
     if(loading) {
         return (
             <div>
@@ -100,29 +97,11 @@ function Space() {
                         Search
                 </button>
             </div>
-
-             
-
-                {data.map(item => {
-                    return (
-                        
-                        <div className='space-item'>
-                            <img src = {item.url} alt = {item.image} className = 'photo' />
-                            <div className = 'space-info'>
-                                <div className='row header'>
-                                        <h3>{item.title}</h3>
-                                        <button className='likebutton' onClick = {markLike}>
-                                            {like ? <FontAwesomeIcon icon={farHeart} />: <FontAwesomeIcon icon={faHeart} />}
-                                        </button>
-                                </div>
-                                <div className='row'>
-                                    <p className = 'space-text'>{item.explanation}</p>
-                                </div>
-                            </div>
-                    </div>
-                    )
-                })}
+            <div>
+                {data.map((item,index) => {
+                    return <Display key={index} item = {item} />})}
             </div>
+        </div>
       
     )
 }
