@@ -24,7 +24,7 @@ code {
   border-radius: 2%;
   display: block;
 }
-.space-info header {
+.header {
   display: flex;
   justify-content: space-between;
   font-size:larger
@@ -51,8 +51,20 @@ code {
   display: grid;
   gap: 1rem 2rem;
   max-width: 25rem;
-  padding-top: 3rem
+  padding-bottom: 5rem
 }
+
+.fa-heart{
+  color:red;
+}
+
+.likebutton{
+  background-color:white;
+  border: none;
+  font-size: 2rem;
+  float: right;
+}
+
 
 /* @media screen and (min-width: 1200px) {
   .section-center {
