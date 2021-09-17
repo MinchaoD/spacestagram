@@ -31,7 +31,6 @@ code {
 }
 
 .space-text {
-  margin-bottom:1rem;
   padding-bottom:5rem;
   border-bottom: 5px dotted gray;
 }
@@ -51,7 +50,7 @@ code {
   display: grid;
   gap: 1rem 2rem;
   max-width: 25rem;
-  padding-bottom: 5rem
+  padding-bottom: 4rem
 }
 
 .fa-heart{
@@ -64,6 +63,40 @@ code {
   font-size: 2rem;
   float: right;
 }
+
+
+.paginationBttns {
+  height: 60px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding:0 4rem 4rem 4rem
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  font-size: 3vh;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: grey;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: grey;
+}
+/* 
+.paginationDisabled a {
+  color: black;
+  background-color: grey;
+} */
 
 
 /* @media screen and (min-width: 1200px) {

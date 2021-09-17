@@ -1,9 +1,9 @@
-import Space from './components/Space.js'
+import Main from './components/Main.js'
 
 function App() {
   return (
     <div>
-     <Space />
+     <Main />
     </div>
   );
 }
