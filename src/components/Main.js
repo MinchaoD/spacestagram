@@ -11,7 +11,7 @@ function Main() {
     const [endDate, setEnddate] = useState('');
     const [pageNumber, setPageNumber] = useState(0)
   
-    const url = 'https://api.nasa.gov/planetary/apod?start_date=2015-09-07&end_date=2015-09-15&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN'
+    const url = 'https://api.nasa.gov/planetary/apod?start_date=2015-08-21&end_date=2015-09-15&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN'
     const searchUrl = `https://api.nasa.gov/planetary/apod?start_date=${startDate}&end_date=${endDate}&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN`
 
     const fetchSpace = async() => {
@@ -21,8 +21,8 @@ function Main() {
             const space = await response.json();
             setData(space);
             setLoading(false)
-
-        } catch(error) {
+        } 
+        catch(error) {
             setLoading(false);
             throw error
         }
@@ -33,14 +33,12 @@ function Main() {
         try {
             const response = await fetch(searchUrl);
             const searchspace = await response.json();
-            setLoading(false);
-            setData(searchspace);
+            setData(searchspace)        
             setLoading(false)
-
-        } catch(error) {
+        }
+        catch(error) {
             setLoading(false);
             throw error
-
         }
     }
 
@@ -48,7 +46,6 @@ function Main() {
     useEffect(() => {
         fetchSpace();
     },[])
-
 
     
     if(loading) {
@@ -70,8 +67,6 @@ function Main() {
     const changePage = ({selected}) => {
         setPageNumber(selected);
     }
-
-   
 
     return (
         <div className = "section-center">
@@ -99,8 +94,8 @@ function Main() {
             <div className = 'row'>
                
                 <button type='submit' 
-                        onClick = {SearchSpace}
-                        style={{fontSize: '4vh', color: 'white', backgroundColor: 'green', padding: '1rem', borderWidth:'0.2rem', borderRadius:'1rem'}} >
+                        className = 'searchbutton'
+                        onClick = {SearchSpace}>
                         Search
                 </button>
             </div>

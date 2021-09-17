@@ -10,15 +10,6 @@ function Display({item, index}) {
         setLike(!like)
     }
 
-    // useEffect(() => {
-    //     setLike(JSON.parse(window.localStorage.getItem('like')));
-    //   }, []);
-    
-    // useEffect(() => {
-    // window.localStorage.setItem('like', like);
-    // }, [like]);
-    // the above code won't work to store the state of like, we will have to use redux to store the individual state of like
-
     return (
         <div className='space-item' key={index} >
             <img src = {item.url} alt = {item.image} className = 'photo' />

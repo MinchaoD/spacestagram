@@ -64,6 +64,18 @@ code {
   float: right;
 }
 
+.searchbutton{
+  font-size: 4vh;
+  color: white;
+  background-color: green;
+  padding: 1rem;
+  border-width: 0.2rem;
+  border-radius: 1rem;
+}
+
+.searchbutton:hover{
+  background-color: rgb(24, 99, 28) !important
+}
 
 .paginationBttns {
   height: 60px;
@@ -83,6 +95,11 @@ code {
   cursor: pointer;
 }
 
+.paginationDisabled a:hover {
+  color: black !important ;
+  background-color: white !important
+}
+
 .paginationBttns a:hover {
   color: white;
   background-color: grey;
@@ -92,11 +109,8 @@ code {
   color: white;
   background-color: grey;
 }
-/* 
-.paginationDisabled a {
-  color: black;
-  background-color: grey;
-} */
+
+
 
 
 /* @media screen and (min-width: 1200px) {

@@ -1,9 +1,9 @@
-import Main from './components/Main.js'
+import Main from './components/Main.js';
 
 function App() {
   return (
     <div>
-     <Main />
+      <Main />
     </div>
   );
 }
