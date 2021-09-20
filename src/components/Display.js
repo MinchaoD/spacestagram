@@ -5,6 +5,7 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 
 function Display({item, index}) {
     const [like, setLike] = useState('false');
+    const [readmore, setReadmore] = useState('Read More')
 
     // this to toggle like button, it will show solid heart if like, otherwise it is an outlined heart - line 23
     const markLike = () => {
@@ -27,7 +28,13 @@ function Display({item, index}) {
                     <h4>{item.date}</h4>
                 </div>
                 <div className='row'>
-                    <p className = 'space-text'>{item.explanation}</p>
+                    {/* <p className = 'space-text'>{item.explanation}</p> */}
+                    <p className = 'space-text'>
+                        {readmore=='Read More'? `${item.explanation.substring(0,150)}... `  : item.explanation}
+                        {/* substring is to get the string from index 0 to index 200 */}
+                        <button className="readmore" onClick= {() => readmore=='Read More'? setReadmore('Show Less'): setReadmore('Read More')}>{readmore}</button>
+                        
+                    </p>
                 </div>
             </div>
             

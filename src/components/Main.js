@@ -35,8 +35,9 @@ function Main() {
         try {
             const response = await fetch(searchUrl);
             const searchspace = await response.json();
+          
             setData(searchspace)        
-            setLoading(false)
+            setLoading(false) 
         }
         catch(error) {
             setLoading(false);
@@ -103,6 +104,7 @@ function Main() {
                         Search
                 </button>
             </div>
+           
             <div  className= 'row'>
                 {data
                     .slice(pagesVisited, pagesVisited + itemPerpage)
