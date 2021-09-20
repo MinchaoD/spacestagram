@@ -8,6 +8,7 @@ Some features for this project:
 4. There are pagination buttons near the bottom of the page. They help users to navigate to different pages as needed. There are total 6 images one one page.
 5. A loading spin logo was designed to show up everytime when the site is fetching data from Nasa API. 
 6. Each image is clickable and it will link to its full image url. 
+7. There is 'Read More' and 'Read Less' feature for each explanation. 
 
 ### Deployment
 This project is deloyed at spacestagram-duclos.netlify.app
