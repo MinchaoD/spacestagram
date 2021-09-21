@@ -38,10 +38,10 @@ code {
 .section-center {
   width: 90vw;
   margin: 0 auto;
-  padding-top: 4rem;
+  padding-top: 1rem;
   max-width: 1170px;
   display: grid;
-  gap: 3rem 2rem;
+  gap: 2rem 1rem;
   justify-items: center;
 }
 
@@ -69,6 +69,7 @@ code {
   color: white;
   background-color: green;
   padding: 1rem;
+  margin-bottom:5rem;
   border-width: 0.2rem;
   border-radius: 1rem;
 }
@@ -120,6 +121,16 @@ code {
   padding-left: 0.25rem;
 }
 
+.alert {
+  height: 1.5rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  color: #721c24;
+  background: #f8d7da;
+}
 
 
 /* @media screen and (min-width: 1200px) {

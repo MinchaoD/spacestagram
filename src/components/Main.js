@@ -9,13 +9,15 @@ function Main() {
     const [data, setData] = useState([]);
     const [startDate, setStartdate] = useState('');
     const [endDate, setEnddate] = useState('');
-    const [pageNumber, setPageNumber] = useState(0)
+    const [pageNumber, setPageNumber] = useState(0);
+    const [alert, setAlert] = useState(false)
   
     const url = 'https://api.nasa.gov/planetary/apod?start_date=2021-09-06&end_date=2021-09-16&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN'
     const searchUrl = `https://api.nasa.gov/planetary/apod?start_date=${startDate}&end_date=${endDate}&api_key=ORrPe6BufYrJ07FVPGoheu9wjNmuvrarg4SVKlhN`
 
     // this fetchSpace will run when the website is refreshed everytime
     const fetchSpace = async() => {
+        setAlert(false)
         setLoading(true)
         try {
             const response = await fetch(url);
@@ -33,7 +35,8 @@ function Main() {
     // this SearchSpace will run when the user search for the specific dates
   
     const SearchSpace = async() => {
-        if(startDate && endDate) {
+        if(startDate && endDate && (endDate >= startDate)) {
+        setAlert(false)
         setLoading(true)
         try {
             const response = await fetch(searchUrl);
@@ -47,9 +50,8 @@ function Main() {
             throw error
         }}
      else {
-        alert('Please enter the correct dates.')
+        setAlert(true)
     }}
-
   
     useEffect(() => {
         fetchSpace();
@@ -80,6 +82,7 @@ function Main() {
 
     return (
         <div className = "section-center">
+            <p className = "alert">{alert && `Please enter the valid dates`}</p>
             <h1> Spacestagram </h1>
             <div  className= 'row' style={{fontSize: '2rem'}} >
                 <div className = 'col-md-6'>
@@ -111,7 +114,7 @@ function Main() {
                         Search
                 </button>
             </div>
-           
+            
             <div  className= 'row'>
                 {data
                     .slice(pagesVisited, pagesVisited + itemPerpage)
@@ -129,8 +132,6 @@ function Main() {
                     disabledClassName={"paginationDisabled"}
                     activeClassName={"paginationActive"} />
             </div>
-          
-   
         </div>
       
     )
