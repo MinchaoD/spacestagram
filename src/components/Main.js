@@ -33,9 +33,9 @@ function Main() {
     
 
     // this SearchSpace will run when the user search for the specific dates
-  
-    const SearchSpace = async() => {
-        if(startDate && endDate && (endDate >= startDate)) {
+      const SearchSpace = async() => {
+        if(startDate && endDate && (endDate >= startDate) && (endDate <= new Date().toISOString().slice(0, 10))) {
+            // toISOString().slice(0, 10) is to format the today current date to be same format as endDate yyyy-mm-dd
         setAlert(false)
         setLoading(true)
         try {
