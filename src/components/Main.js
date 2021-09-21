@@ -28,9 +28,12 @@ function Main() {
             throw error
         }
     }
+    
 
     // this SearchSpace will run when the user search for the specific dates
+  
     const SearchSpace = async() => {
+        if(startDate && endDate) {
         setLoading(true)
         try {
             const response = await fetch(searchUrl);
@@ -42,8 +45,10 @@ function Main() {
         catch(error) {
             setLoading(false);
             throw error
-        }
-    }
+        }}
+     else {
+        alert('Please enter the correct dates.')
+    }}
 
   
     useEffect(() => {
@@ -82,6 +87,7 @@ function Main() {
                         Start Date:
                         <input type='date' 
                                 name='startdate'
+                                value = {startDate}
                                 onChange = {e => setStartdate(e.target.value)}
                                 style={{margin:'1rem', fontSize:'1.5rem', backgroundColor:'#DCDCDC'}}/>
                     </label>
@@ -91,6 +97,7 @@ function Main() {
                         End Date:
                         <input type='date' 
                                 name='enddate'
+                                value = {endDate}
                                 onChange = {e => setEnddate(e.target.value)}
                                 style={{margin:'1.7rem', fontSize:'1.5rem', backgroundColor:'#D3D3D3'}} />
                     </label>
