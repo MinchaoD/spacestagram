@@ -9,6 +9,7 @@ Some features for this project:
 5. A loading spin logo was designed to show up everytime when the site is fetching data from Nasa API. 
 6. Each image is clickable and it will link to its full image url. 
 7. There is 'Read More' and 'Read Less' feature for each explanation. 
+8. When the user enters invalid dates, such as end date is before start date, a warning will be shown on the screen. 
 
 ### Deployment
 This project is deloyed at spacestagram-duclos.netlify.app
